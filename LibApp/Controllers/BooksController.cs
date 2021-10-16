@@ -14,5 +14,23 @@ namespace LibApp.Controllers
             var firstBook = new Book() { Name = "English dictionary" };
             return View(firstBook);
         }
+
+        public IActionResult Index(int? pageIndex, string sortBy)
+        {
+            if (!pageIndex.HasValue)
+            {
+                pageIndex = 1;
+            }
+            if (String.IsNullOrEmpty(sortBy))
+            {
+                sortBy = "Name";
+            }
+            return Content($"pageIndex={pageIndex}&sortBy={sortBy}");
+        }
+
+        public IActionResult ByReleaseDate(int year, int month)
+        {
+            return Content(year + "/" + month);
+        }
     }
 }
