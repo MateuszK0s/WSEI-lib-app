@@ -47,13 +47,7 @@ namespace LibApp
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "BooksByReleaseDate",
-                    pattern: "books/released/{year}/{month}",
-                    defaults: new { controller = "Books", action = "ByReleaseDate" },
-                    new { year = @"\d{4}", month = @"\d{2}" });
-
+            {                
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
