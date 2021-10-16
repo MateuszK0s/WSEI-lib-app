@@ -12,7 +12,8 @@ namespace LibApp.Controllers
         public IActionResult Random()
         {
             var firstBook = new Book() { Name = "English dictionary" };
-            return View(firstBook);
+            ViewData["Book"] = firstBook;
+            return View();
         }
 
         public IActionResult Index(int? pageIndex, string sortBy)
